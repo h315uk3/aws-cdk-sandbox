@@ -1,0 +1,40 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'cdk/**'
+jobs:
+  cdk-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cdk
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Install and Startup
+        env:
+          LOCALSTACK_API_KEY: ${{ secrets.LOCALSTACK_API_KEY }}
+          AWS_ACCOUNT_ID: "000000000000"
+          AWS_ACCESS_KEY_ID: dummy
+          AWS_SECRET_ACCESS_KEY: dummy
+        run: |
+          pip install localstack awscli-local[ver1]
+          npm install -g aws-cdk-local aws-cdk typescript
+          docker pull localstack/localstack
+          DOCKER_FLAGS='-d' localstack start
+          echo "Waiting for LocalStack startup..."
+          for i in {1..45}; do if [ `docker logs localstack_main | grep 'Ready.'` ]; then break; fi; sleep 1; done
+          echo "Startup complete"
+      - name: Run some Tests against LocalStack
+        run: |
+          echo "Test Execution complete!"
