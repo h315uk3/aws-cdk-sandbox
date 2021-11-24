@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cdk = require("@aws-cdk/core");
+const aws_cdk_sandbox_stack_1 = require("../lib/aws-cdk-sandbox-stack");
+const app = new cdk.App();
+new aws_cdk_sandbox_stack_1.AwsCdkSandboxStack(app, 'AwsCdkSandboxStack');
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXdzLWNkay1zYW5kYm94LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXdzLWNkay1zYW5kYm94LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLHFDQUFxQztBQUNyQyx3RUFBa0U7QUFFbEUsTUFBTSxHQUFHLEdBQUcsSUFBSSxHQUFHLENBQUMsR0FBRyxFQUFFLENBQUM7QUFDMUIsSUFBSSwwQ0FBa0IsQ0FBQyxHQUFHLEVBQUUsb0JBQW9CLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCAqIGFzIGNkayBmcm9tICdAYXdzLWNkay9jb3JlJztcbmltcG9ydCB7IEF3c0Nka1NhbmRib3hTdGFjayB9IGZyb20gJy4uL2xpYi9hd3MtY2RrLXNhbmRib3gtc3RhY2snO1xuXG5jb25zdCBhcHAgPSBuZXcgY2RrLkFwcCgpO1xubmV3IEF3c0Nka1NhbmRib3hTdGFjayhhcHAsICdBd3NDZGtTYW5kYm94U3RhY2snKTtcbiJdfQ==
