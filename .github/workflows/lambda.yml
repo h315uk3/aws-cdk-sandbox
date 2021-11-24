@@ -3,8 +3,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - './**'
 jobs:
   lambda-test:
     runs-on: ubuntu-latest
@@ -37,7 +35,7 @@ jobs:
           echo "Startup Complete"
       - name: CDK deploy
         run: |
-          yes | cdklocal deploy
+          cdklocal deploy
       - name: Run some Tests against LocalStack
         run: |
           echo "foo"
