@@ -3,8 +3,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - './**'
 jobs:
   lambda-test:
     runs-on: ubuntu-latest
