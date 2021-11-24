@@ -35,7 +35,7 @@ jobs:
           echo "Startup Complete"
       - name: CDK deploy
         run: |
-          yes | cdklocal deploy
+          cdklocal deploy
       - name: Run some Tests against LocalStack
         run: |
           echo "foo"
